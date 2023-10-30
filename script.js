@@ -32,10 +32,16 @@ function loadQuestion() {
         questionElement.textContent = current.question;
         optionsElements.forEach((option, index) => {
             option.textContent = current.options[index];
+            option.style.display = 'block'; // Show options
             option.addEventListener('click', checkAnswer);
         });
     } else {
         resultElement.textContent = 'Quiz Completed! 🎉';
+        questionElement.textContent = `Your Score: ${score}`;
+        questionElement.classList.add('flash'); // Add a flash effect to the score
+        optionsElements.forEach((option) => {
+            option.style.display = 'none'; // Hide options
+        });
         restartButton.style.display = 'block';
         quizCompleted = true;
     }
@@ -68,6 +74,11 @@ function restartQuiz() {
     score = 0;
     updateScore();
     resultElement.textContent = '';
+    questionElement.textContent = '';
+    questionElement.classList.remove('flash'); // Remove the flash effect
+    optionsElements.forEach((option) => {
+        option.style.display = 'none'; // Hide options
+    });
     restartButton.style.display = 'none';
     quizCompleted = false;
     loadQuestion();
@@ -75,3 +86,4 @@ function restartQuiz() {
 
 loadQuestion();
 updateScore();
+
