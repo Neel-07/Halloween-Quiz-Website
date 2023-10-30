@@ -8,7 +8,9 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    height: 100vh; /* Set the height of the body to the viewport height */
 }
+
 
 .container {
     margin-top: 0;
