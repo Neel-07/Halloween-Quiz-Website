@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
     <title>Halloween Quiz</title>
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <h1 class="header">Halloween Quiz</h1>
-        <div class="quiz-container">
+        <section class="quiz-container">
             <p id="question">Question goes here.</p>
             <div class="options">
                 <button class="option" id="optionA">Option A</button>
@@ -17,16 +17,15 @@
                 <button class="option" id="optionC">Option C</button>
                 <button class="option" id="optionD">Option D</button>
             </div>
-        </div>
-        <div class="result-container">
+        </section>
+        <section class="result-container">
             <p id="result"></p>
-        </div>
-        <div class="button-container">
-            <button class="start-button" id="restartButton" onclick="restartQuiz()">Restart Quiz</button>
-        </div>
+        </section>
+        <section class="button-container">
+            <button class="start-button" id="restartButton">Restart Quiz</button>
+        </section>
         <p id="score">Score: 0</p>
-    </div>
-    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
-
