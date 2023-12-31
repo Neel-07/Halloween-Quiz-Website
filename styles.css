@@ -8,13 +8,16 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Set the height of the body to the viewport height */
+    height: 100vh;
 }
 
-
 .container {
-    margin-top: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .header {
@@ -23,13 +26,12 @@ body {
     color: #ff9933;
 }
 
-.quiz-container {
+.quiz-container, .result-container {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
     width: 300px;
-    margin: 0 auto;
 }
 
 .options {
@@ -40,20 +42,13 @@ body {
     margin-top: 20px;
 }
 
-.option {
+.option, .start-button {
     background-color: #444;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.result-container {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
 }
 
 #result {
@@ -71,15 +66,3 @@ body {
     justify-content: center;
     margin-top: 20px;
 }
-
-.start-button {
-    background-color: #444;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-   
-
