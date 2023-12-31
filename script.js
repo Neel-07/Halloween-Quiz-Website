@@ -4,27 +4,17 @@ const questions = [
         options: ["Pumpkin Picking", "Pumpkin Carving", "Pumpkin Painting", "Pumpkin Tossing"],
         correct: "Pumpkin Carving"
     },
-    {
-        question: "What is the name of the spirit that is said to wander the earth on Halloween night?",
-        options: ["Casper", "The Headless Horseman", "Jack-o'-Lantern", "Banshee"],
-        correct: "The Headless Horseman"
-    },
-    {
-        question: "What do you say to ask for candy on Halloween night?",
-        options: ["Please", "Trick or Treat", "Give me candy", "Happy Halloween"],
-        correct: "Trick or Treat"
-    }
+    // ...
 ];
 
 const questionElement = document.getElementById('question');
-const optionsElements = document.querySelectorAll('.option');
+const optionsElements = Array.from(document.querySelectorAll('.option'));
 const resultElement = document.getElementById('result');
 const scoreElement = document.getElementById('score');
 const restartButton = document.getElementById('restartButton');
 
 let currentQuestion = 0;
 let score = 0;
-let quizCompleted = false;
 
 function loadQuestion() {
     if (currentQuestion < questions.length) {
@@ -32,24 +22,15 @@ function loadQuestion() {
         questionElement.textContent = current.question;
         optionsElements.forEach((option, index) => {
             option.textContent = current.options[index];
-            option.style.display = 'block'; // Show options
-            option.addEventListener('click', checkAnswer);
+            option.style.display = 'block';
+            option.onclick = checkAnswer;
         });
     } else {
-        resultElement.textContent = 'Quiz Completed! 🎉';
-        questionElement.textContent = `Your Score: ${score}`;
-        questionElement.classList.add('flash'); // Add a flash effect to the score
-        optionsElements.forEach((option) => {
-            option.style.display = 'none'; // Hide options
-        });
-        restartButton.style.display = 'block';
-        quizCompleted = true;
+        endQuiz();
     }
 }
 
 function checkAnswer(event) {
-    if (quizCompleted) return;
-
     const selectedOption = event.target.textContent;
     const correctOption = questions[currentQuestion].correct;
 
@@ -69,21 +50,24 @@ function updateScore() {
     scoreElement.textContent = `Score: ${score}`;
 }
 
+function endQuiz() {
+    resultElement.textContent = 'Quiz Completed! 🎉';
+    questionElement.textContent = `Your Score: ${score}`;
+    questionElement.classList.add('flash');
+    optionsElements.forEach((option) => {
+        option.style.display = 'none';
+    });
+    restartButton.style.display = 'block';
+}
+
 function restartQuiz() {
     currentQuestion = 0;
     score = 0;
     updateScore();
     resultElement.textContent = '';
     questionElement.textContent = '';
-    questionElement.classList.remove('flash'); // Remove the flash effect
-    optionsElements.forEach((option) => {
-        option.style.display = 'none'; // Hide options
-    });
-    restartButton.style.display = 'none';
-    quizCompleted = false;
+    questionElement.classList.remove('flash');
     loadQuestion();
 }
 
-loadQuestion();
-updateScore();
-
+loadQuestion(); // Start the quiz immediately
