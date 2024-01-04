@@ -4,7 +4,17 @@ const questions = [
         options: ["Pumpkin Picking", "Pumpkin Carving", "Pumpkin Painting", "Pumpkin Tossing"],
         correct: "Pumpkin Carving"
     },
-    // ...
+    {
+        question: "Which animal is often associated with witches?",
+        options: ["Rabbit", "Cat", "Dog", "Bird"],
+        correct: "Cat"
+    },
+    {
+        question: "What do people traditionally bob for at Halloween parties?",
+        options: ["Apples", "Oranges", "Pears", "Grapes"],
+        correct: "Apples"
+    },
+    // Add more questions as needed
 ];
 
 const questionElement = document.getElementById('question');
@@ -51,23 +61,8 @@ function updateScore() {
 }
 
 function endQuiz() {
-    resultElement.textContent = 'Quiz Completed! 🎉';
-    questionElement.textContent = `Your Score: ${score}`;
-    questionElement.classList.add('flash');
-    optionsElements.forEach((option) => {
-        option.style.display = 'none';
-    });
-    restartButton.style.display = 'block';
+    resultElement.textContent = `Quiz ended. Your score is ${score}.`;
+    if (localStorage.getItem('highScore') < score) {
+        localStorage.setItem('highScore', score);
+    }
 }
-
-function restartQuiz() {
-    currentQuestion = 0;
-    score = 0;
-    updateScore();
-    resultElement.textContent = '';
-    questionElement.textContent = '';
-    questionElement.classList.remove('flash');
-    loadQuestion();
-}
-
-loadQuestion(); // Start the quiz immediately
