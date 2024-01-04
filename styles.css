@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230715/pngtree-spooky-halloween-theme-in-3d-rendering-image_3878795.jpg');
+    background-image: url('https://images.pexels.com/photos/619419/pexels-photo-619419.jpeg?auto=compress&cs=tinysrgb&w=600');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     color: #fff;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     height: 100vh;
 }
 
@@ -51,6 +51,10 @@ body {
     cursor: pointer;
 }
 
+.option:hover, .start-button:hover {
+    background-color: #666;
+}
+
 #result {
     margin: 0;
     font-size: 1.2em;
@@ -65,4 +69,10 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .quiz-container, .result-container {
+        width: 100%;
+    }
 }
