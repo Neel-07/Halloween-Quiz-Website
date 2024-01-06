@@ -17,14 +17,22 @@ const questions = [
     // Add more questions as needed
 ];
 
+let currentQuestion = 0;
+let score = 0;
+
 const questionElement = document.getElementById('question');
 const optionsElements = Array.from(document.querySelectorAll('.option'));
 const resultElement = document.getElementById('result');
 const scoreElement = document.getElementById('score');
 const restartButton = document.getElementById('restartButton');
 
-let currentQuestion = 0;
-let score = 0;
+restartButton.addEventListener('click', startQuiz);
+
+function startQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    loadQuestion();
+}
 
 function loadQuestion() {
     if (currentQuestion < questions.length) {
@@ -32,25 +40,21 @@ function loadQuestion() {
         questionElement.textContent = current.question;
         optionsElements.forEach((option, index) => {
             option.textContent = current.options[index];
-            option.style.display = 'block';
-            option.onclick = checkAnswer;
+            option.onclick = () => checkAnswer(index);
         });
     } else {
         endQuiz();
     }
 }
 
-function checkAnswer(event) {
-    const selectedOption = event.target.textContent;
-    const correctOption = questions[currentQuestion].correct;
-
-    if (selectedOption === correctOption) {
+function checkAnswer(index) {
+    const correctIndex = questions[currentQuestion].options.indexOf(questions[currentQuestion].correct);
+    if (index === correctIndex) {
         resultElement.textContent = 'Correct! 🎃';
         score++;
     } else {
         resultElement.textContent = 'Incorrect. Try again! 👻';
     }
-
     currentQuestion++;
     updateScore();
     loadQuestion();
@@ -66,3 +70,5 @@ function endQuiz() {
         localStorage.setItem('highScore', score);
     }
 }
+
+startQuiz();
