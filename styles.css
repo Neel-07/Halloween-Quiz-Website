@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://media.istockphoto.com/id/1269139174/photo/pumpkins-in-graveyard-in-the-spooky-night-halloween-backdrop.jpg?b=1&s=612x612&w=0&k=20&c=nrodTpDZjawf5cS6l1U233DL9JmL6vbl4fIkgGXzcGM=');
+    background-image: url('https://th.bing.com/th/id/R.37410f4d0e5de994d597058a708163f7?rik=u1t8s%2fAhKtVZtQ&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-4%2fHalloween-Background-HQ-Wallpaper-14399.jpg&ehk=%2bQcs8hE6cxf2UOgtMn%2f2hl6hL6UFOXJgpYLZnsbuoLY%3d&risl=&pid=ImgRaw&r=0');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -24,6 +24,12 @@ body {
     font-size: 2em;
     margin-top: 20px;
     color: #ff9933;
+    animation: spooky-flicker 1s infinite;
+}
+
+@keyframes spooky-flicker {
+    0%, 100% { color: #ff9933; }
+    50% { color: #fff; }
 }
 
 .quiz-container, .result-container {
