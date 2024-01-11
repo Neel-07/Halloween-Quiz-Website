@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-    font-size: 2em;
+    font-size: 4em;
     margin-top: 20px;
     color: #ff9933;
     animation: spooky-flicker 1s infinite;
@@ -34,10 +34,10 @@ body {
 
 .quiz-container, .result-container {
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     margin-top: 20px;
-    width: 300px;
+    width: 400px;
 }
 
 .options {
