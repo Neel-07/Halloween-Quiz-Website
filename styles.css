@@ -18,7 +18,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     gap: 20px; /* Adds proper spacing between elements */
 }
 
