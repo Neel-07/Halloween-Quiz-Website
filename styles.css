@@ -29,14 +29,15 @@ body {
     position: relative; /* To add a box behind the header */
 }
 
-.header::before { /* Box behind the header */
+.header::before { 
+    border-radius:10px;
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 153, 51, 0.5); /* Color matching the theme */
+    background-color: rgb(85 18 198 / 64%); 
     z-index: -1;
     animation: spooky-flicker 1s infinite; /* Synced with header animation */
 }
